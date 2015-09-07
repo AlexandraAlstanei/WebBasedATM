@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Subgurim.Controles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,9 @@ namespace WebBasedATM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            GMap1.GZoom = 3;
+            GLatLng centerCoordinates = new GLatLng(55.2, 9.5);
+            GMap1.setCenter(centerCoordinates);
+            GMap1.GZoom = 7;
             GMap1.enableHookMouseWheelToZoom = true;
         }
     }
