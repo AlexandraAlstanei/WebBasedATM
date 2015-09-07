@@ -12,6 +12,7 @@ namespace WebBasedATM
         protected void Page_Load(object sender, EventArgs e)
         {
             GMap1.GZoom = 3;
+            GMap1.enableHookMouseWheelToZoom = true;
         }
     }
 }
