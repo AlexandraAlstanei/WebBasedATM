@@ -16,6 +16,7 @@ namespace WebBasedATM
             GMap1.setCenter(centerCoordinates);
             GMap1.GZoom = 7;
             GMap1.enableHookMouseWheelToZoom = true;
+            GMap1.enableDoubleClickZoom = true;
         }
     }
 }
