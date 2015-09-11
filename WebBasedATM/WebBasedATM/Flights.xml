@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flights>
+<flight>
+	<id>001</id>
+	<callsign>SAS123</callsign>
+	<adep>GOT</adep>
+	<ades>BRU</ades>
+	<actype>ABA319</actype>
+	<wtc>M</wtc>
+	<plots>
+		<plot>
+			<altitude>36025</altitude>
+			<speed>488</speed>
+			<latitude>55</latitude>
+			<longitude>10</longitude>
+			<ssrcode>X345</ssrcode>
+			<modescode>ADS</modescode>
+		</plot>
+	</plots>
+</flight>
+</flights>
