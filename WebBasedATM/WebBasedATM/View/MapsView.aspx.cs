@@ -20,20 +20,22 @@ namespace WebBasedATM
             GMap1.enableHookMouseWheelToZoom = true;
             GMap1.enableDoubleClickZoom = true;
 
-            GLatLng latlng = new GLatLng(55.86, 9.83);
-            PinLetter pinLetter = new PinLetter("A", Color.Yellow, Color.Black);
-            GMap1.Add(new GMarker(latlng, new GMarkerOptions(new GIcon(pinLetter.ToString(), pinLetter.Shadow()))));
-
+            GLatLng latlng = new GLatLng(50.86, 9.83);
+            GLatLng latlng2 = new GLatLng(45.7, 27.17);
             GIcon icon = new GIcon();
-            icon.image = "http://www.flaticon.com/free-icon/airplane-shape_59919";
-            icon.iconSize = new GSize(32, 32);
+            icon.image = "https://dl.dropboxusercontent.com/u/1936953/airplane105%20%283%29.png";
+            icon.iconSize = new GSize(55, 55);
             icon.iconAnchor = new GPoint(16, 32);
 
             GMarkerOptions mOpts = new GMarkerOptions();
             mOpts.icon = icon;
+            GMarkerOptions mOpts2 = new GMarkerOptions();
+            mOpts2.icon = icon;
 
             GMarker marker = new GMarker(latlng, mOpts);
+            GMarker marker2 = new GMarker(latlng2, mOpts2);
             GMap1.Add(marker);
+            GMap1.Add(marker2);
         }
     }
 }
