@@ -15,7 +15,6 @@ namespace WebBasedATM
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             #region Maps
             GLatLng centerCoordinates = new GLatLng(55.2, 9.5);
             GMap1.setCenter(centerCoordinates);
@@ -29,15 +28,12 @@ namespace WebBasedATM
             foreach (Flight flight in listOfFlights)
             {
                 GLatLng coordinates = new GLatLng(flight.Plots[0].latitude, flight.Plots[0].longitude);
-                GIcon icon = createIcon(chooseIcon("N - W"));
+                GIcon icon = createIcon(chooseIcon(calculateDirection(flight.Plots[0].latitude, flight.Plots[0].longitude, flight.Plots[1].latitude, flight.Plots[1].longitude)));
                 GMarkerOptions mOpts = new GMarkerOptions();
                 mOpts.icon = icon;
                 GMarker marker = new GMarker(coordinates, mOpts);
                 GMap1.Add(marker);
-            }
-
-            
-          
+           }   
         }
 
         public GIcon createIcon(string iconURL)
@@ -72,7 +68,56 @@ namespace WebBasedATM
                 default: 
                     return "https://dl.dropboxusercontent.com/u/1936953/N.png";
             }
+        }
 
+        public string calculateDirection(double latitudeA, double longitudeA, double latitudeB, double longitudeB)
+        {
+            double x, y, direction;
+            x = Math.Cos(latitudeB) * Math.Sin(longitudeA - longitudeB);
+            y = Math.Cos(latitudeA) * Math.Sin(latitudeB) - Math.Sin(latitudeA) * Math.Cos(latitudeB) * Math.Cos(longitudeA - longitudeB);
+            direction = Math.Atan2(x, y);
+            double directionAngle = 0;
+            if (direction > 0)
+            {
+                 directionAngle = direction * (180 / Math.PI);
+            }
+            else
+            {
+                 directionAngle = 360 + (direction * (180 / Math.PI));
+            }
+            if ((directionAngle > 0) && (directionAngle < 90))
+            {
+                return "N - E";
+            }
+            else if ((directionAngle > 90) && (directionAngle < 180))
+            {
+                return "S - E";
+            }
+            else if ((directionAngle > 180) && (directionAngle < 270))
+            {
+                return "S - W";
+            }
+            else if ((directionAngle > 270) && (directionAngle < 360))
+            {
+                return "N - W";
+            }
+            else if ((directionAngle == 0) || (directionAngle == 360))
+            {
+                return "N";
+            }
+            else if (directionAngle == 90)
+            {
+                return "E";
+            }
+            else if (directionAngle == 180)
+            {
+                return "S";
+            }
+            else if (directionAngle == 270)
+            {
+                return "W";
+            }
+            return "N";
         }
     }
 }
