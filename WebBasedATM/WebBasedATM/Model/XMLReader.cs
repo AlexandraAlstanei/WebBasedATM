@@ -8,11 +8,11 @@ namespace WebBasedATM.Model
 {
     public class XMLReader
     {
-        public void readFromFile()
+        public List<Flight> readFromFile()
         {
             List<Flight> flightList;
-            flightList = (from e in XDocument.Load("C:\\Users\\Alexandra\\Documents\\Visual Studio 2015\\Projects\\ReadFromXML\\src\\ReadFromXML\\Flights.xml").
-                              Root.Elements("flight")
+            flightList = (from e in XDocument.Load("C:\\Users\\Alexandra\\Documents\\Global Business Engineering\\9th Semester\\WebBasedATM\\WebBasedATM\\WebBasedATM\\Flights.xml").
+                              Root.DescendantsAndSelf("flight")
                           select new Flight
                           {
                               ID = (string)e.Element("id"),
@@ -33,6 +33,7 @@ namespace WebBasedATM.Model
                                   })
                                   .ToArray()
                           }).ToList();
+            return flightList;
         }
     }
 }

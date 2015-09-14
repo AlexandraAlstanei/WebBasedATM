@@ -18,4 +18,22 @@
 		</plot>
 	</plots>
 </flight>
+<flight>
+	<id>002</id>
+	<callsign>ROT391</callsign>
+	<adep>OTP</adep>
+	<ades>LHR</ades>
+	<actype>A-318</actype>
+	<wtc>M</wtc>
+	<plots>
+		<plot>
+			<altitude>36025</altitude>
+			<speed>420</speed>
+			<latitude>47</latitude>
+			<longitude>21.9</longitude>
+			<ssrcode>M456</ssrcode>
+			<modescode>ADS</modescode>
+		</plot>
+	</plots>
+</flight>
 </flights>
